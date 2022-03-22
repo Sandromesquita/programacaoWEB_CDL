@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<audio controls autoplay>
+		<source src="dende.mp3" type="audio/mp3">
+	</audio>
+	<pre>
+		<font color="#95a5a6">&#47;*</font>
+		<font color="#95a5a6"> * Traffic Light Project</font>
+		<font color="#95a5a6"> * Author:</font>
+		<font color="#95a5a6"> * Start:</font>
+		<font color="#95a5a6"> * Conclusion:</font>
+		<font color="#95a5a6"> * </font>
+		<font color="#95a5a6"> * Descrition:</font>
+		<font color="#95a5a6"> * This project is a traffic light simulation that switches the state</font>
+		<font color="#95a5a6"> * of the lights in green per 5 seconds, yellow per 3 seconds and red per</font>
+		<font color="#95a5a6"> * 8 seconds.</font>
+		<font color="#95a5a6"> *&#47;</font>
+
+		<font color="#434f54">&#47;&#47;Declaration of variables</font>
+		<font color="#5e6d03">#define</font> <font color="#000000">red_light</font> <font color="#000000">2</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;defines that pin two is the red light</font>
+		<font color="#5e6d03">#define</font> <font color="#000000">yellow_light</font> <font color="#000000">3</font> &nbsp;<font color="#434f54">&#47;&#47;defines that pin three is the yellow light </font>
+		<font color="#5e6d03">#define</font> <font color="#000000">green_light</font> <font color="#000000">4</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47;defines that pin four is the green light</font>
+
+		<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+		 &nbsp;<font color="#5e6d03">for</font> <font color="#000000">(</font><font color="#00979c">byte</font> <font color="#000000">light</font><font color="#434f54">=</font><font color="#000000">2</font><font color="#000000">;</font> <font color="#000000">light</font><font color="#434f54">&lt;</font><font color="#000000">5</font><font color="#000000">;</font> <font color="#000000">light</font><font color="#434f54">++</font><font color="#000000">)</font><font color="#000000">{</font>
+		 &nbsp;&nbsp;&nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">light</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Set Arduino ports as OUTPUT</font>
+		 &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Start of lights tests</font>
+		 &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">light</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+		 &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+		 &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">light</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+		 &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;End of lights tests</font>
+		 &nbsp;<font color="#000000">}</font>
+		<font color="#000000">}</font>
+
+		<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+		 &nbsp;<font color="#000000">trafficLight</font><font color="#000000">(</font><font color="#000000">1</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">5000</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Green light per 5 seconds</font>
+		 &nbsp;<font color="#000000">trafficLight</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">3000</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Yellow light per 3 seconds</font>
+		 &nbsp;<font color="#000000">trafficLight</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#434f54">,</font> <font color="#000000">8000</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Red light per 8 seconds</font>
+		<font color="#000000">}</font>
+
+		<font color="#00979c">void</font> <font color="#000000">trafficLight</font><font color="#000000">(</font><font color="#00979c">bool</font> <font color="#000000">green</font><font color="#434f54">,</font> <font color="#00979c">bool</font> <font color="#000000">yellow</font><font color="#434f54">,</font> <font color="#00979c">bool</font> <font color="#000000">red</font><font color="#434f54">,</font> <font color="#00979c">int</font> <font color="#000000">time_light</font><font color="#000000">)</font><font color="#000000">{</font>
+		 &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">red_light</font><font color="#434f54">,</font> <font color="#000000">red</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Turn On or Off the red light</font>
+		 &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">yellow_light</font><font color="#434f54">,</font> <font color="#000000">yellow</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Turn On or Off the yellow light</font>
+		 &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">green_light</font><font color="#434f54">,</font> <font color="#000000">green</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47;Turn On or Off the green light</font>
+		 &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">time_light</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Wait time of the light traffic</font>
+		<font color="#000000">}</font>
+	</pre>
+
+	<form style="margin: 20px;" method="post">
+		<legend>Qual nota você dar para esse cógido?</legend>
+		<input type="radio" id="ruim" name="nota" value="0" checked> Ruim
+		<input type="radio" id="bom" name="nota" value="1"> Bom
+		<input type="radio" id="otimo" name="nota" value="2"> Otimo
+		<input type="button" value="ENVIE" onclick="msg()"><br><br>
+	</form>
+
+	<script type="text/javascript">
+		function msg(){
+			alert("Avaliação enviada, obrigado!")
+		}
+	</script>
+
+	<header>
+		<!--Cabeçalho-->
+		<nav>
+			<!--Conteudo de navegação - Menu-->
+		</nav>
+	</header>
+
+	<main>
+		<!--Parte principal - relacionar com o titulo e o assunto principal-->
+	</main>
+
+	<section>
+
+		<article>
+			<!--Tecnologia <strong>Educação</strong>-->
+			<!--<strong>Educacional, escola, aprendizado, ensino</strong> pato: nada, voa, corre - mas não faz nada direito-->
+			<b></b> <!--bold-->
+		</article>
+
+		<article>
+			<!--Tecnologia <strong>Saúde</strong>-->
+			<aside>
+				<!--Eu apresento ao lado do artigo principal conteúdos que sejam do mesmo assunto-->
+			</aside>
+		</article>
+
+		<article>
+			<!--Artigo principal-->
+			<div>
+				<!--Não tem um valor semântico - Unica funcao: Organizar o site (CSS)-->
+			</div>
+
+			<div>
+				
+			</div>
+
+			<div>
+				
+			</div>
+		</article>
+
+	</section>
+
+</body>
+
+<footer>
+	
+</footer>
+</html>
